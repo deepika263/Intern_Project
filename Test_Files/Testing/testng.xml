@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!--
+  testng.xml – SkillBridge Cross Browser Suite
+  ==============================================
+  Each <test> block runs the same test classes on a different browser.
+  Change the "browser" parameter value to switch browsers — no Java changes needed.
+
+  To run only one browser: comment out the other <test> blocks.
+-->
+
+<suite name="SkillBridge Cross Browser Suite" verbose="1">
+
+    <!-- ── Global listener – fires for ALL tests across ALL browsers ────────── -->
+    <listeners>
+        <listener class-name="org.example.utils.ExtentReportListener"/>
+    </listeners>
+
+    <!-- ══════════════════════════════════════════════════════════════════════ -->
+    <!--  CHROME RUN                                                           -->
+    <!-- ══════════════════════════════════════════════════════════════════════ -->
+    <test name="Chrome – API Tests">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="baseUrl" value="http://localhost:4200"/>
+        <parameter name="apiUrl"  value="http://localhost:3000"/>
+        <classes>
+            <class name="org.example.tests.ApiTest"/>
+        </classes>
+    </test>
+
+    <test name="Chrome – UI Tests">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="baseUrl" value="http://localhost:4200"/>
+        <parameter name="apiUrl"  value="http://localhost:3000"/>
+        <classes>
+            <class name="org.example.tests.UITest"/>
+        </classes>
+    </test>
+
+    <!-- ══════════════════════════════════════════════════════════════════════ -->
+    <!--  FIREFOX RUN                                                          -->
+    <!-- ══════════════════════════════════════════════════════════════════════ -->
+    <!--test name="Firefox – API Tests">
+        <parameter name="browser" value="firefox"/>
+        <parameter name="baseUrl" value="http://localhost:4200"/>
+        <parameter name="apiUrl"  value="http://localhost:3000"/>
+        <classes>
+            <class name="org.example.tests.ApiTest"/>
+        </classes>
+    </test>
+
+    <test name="Firefox – UI Tests">
+        <parameter name="browser" value="firefox"/>
+        <parameter name="baseUrl" value="http://localhost:4200"/>
+        <parameter name="apiUrl"  value="http://localhost:3000"/>
+        <classes>
+            <class name="org.example.tests.UITest"/>
+        </classes>
+    </test-->
+
+    <!-- ══════════════════════════════════════════════════════════════════════ -->
+    <!--  EDGE RUN                                                             -->
+    <!-- ══════════════════════════════════════════════════════════════════════ -->
+    <!--test name="Edge – API Tests">
+        <parameter name="browser" value="edge"/>
+        <parameter name="baseUrl" value="http://localhost:4200"/>
+        <parameter name="apiUrl"  value="http://localhost:3000"/>
+        <classes>
+            <class name="org.example.tests.ApiTest"/>
+        </classes>
+    </test>
+
+    <test name="Edge – UI Tests">
+        <parameter name="browser" value="edge"/>
+        <parameter name="baseUrl" value="http://localhost:4200"/>
+        <parameter name="apiUrl"  value="http://localhost:3000"/>
+        <classes>
+            <class name="org.example.tests.UITest"/>
+        </classes>
+    </test-->
+
+</suite>
